@@ -1,2 +1,14 @@
 # ls aliases
-alias ll="ls -alh"
+alias ll="ls -alF"
+alias la="ls -a"
+alias l="ls -CF"
+
+# Git aliases
+alias gs="git status"
+alias gps="git push"
+alias gpl="git pull"
+alias gcm="git commit -m"
+alias gca="git commit -a -m"
+alias ga="git add"
+alias gl="git log"
+alias gch="git checkout"
