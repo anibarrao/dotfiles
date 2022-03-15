@@ -1,0 +1,35 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+#Added by furycli:
+export PATH=/Users/anibarra/Library/Python/3.9/bin:/Users/anibarra/.sdkman/candidates/grails/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#Added by furycli:
+export PATH=/Users/anibarra/Library/Python/3.9/bin:/Users/anibarra/.rvm/gems/ruby-3.0.0/bin:/Users/anibarra/.rvm/gems/ruby-3.0.0@global/bin:/Users/anibarra/.rvm/rubies/ruby-3.0.0/bin:/Users/anibarra/.nvm/versions/node/v17.6.0/bin:/Users/anibarra/Library/Python/3.9/bin:/Users/anibarra/.sdkman/candidates/grails/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/go/bin:/Users/anibarra/.rvm/bin:/opt/homebrew/bin
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# maven
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Include aliases
+if [ -f $HOME/.dotfiles/zsh/zsh_aliases ]; then
+    . $HOME/.dotfiles/zsh/zsh_aliases
+fi
