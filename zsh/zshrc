@@ -33,3 +33,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 if [ -f $HOME/.dotfiles/zsh/zsh_aliases ]; then
     . $HOME/.dotfiles/zsh/zsh_aliases
 fi
+
+# Include colores on ls
+alias ls="ls --color=auto"
+export LSCOLORS=ExFxBxDxCxegedabagacad
