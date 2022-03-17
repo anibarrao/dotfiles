@@ -7,6 +7,28 @@
 
 # This is a first version, and I hope it works well. 
 
+# Variables
+DOTFILES=$HOME/.dotfiles
+
+# Symbolic links
+symbolic_links(){
+    echo "Removing previous configuration files for bash and zsh"
+    rm -rf $HOME/.bash* $HOME/.zsh* && echo "Files erased"
+    echo ""
+    echo "Creating symbolic links for zshrc"
+    if [ -f $DOTFILES/zsh/zshrc ]; then
+        ln -nfs $DOTFILES/zsh/zshrc $HOME/.zshrc
+    fi
+    echo "Removing previous configuration files for nvim"
+    rm -rf $HOME/.config/nvim 
+    echo ""
+    echo "Creating symbolic link for nvim configuration files"
+    if [ -f $DOTFILES/zsh/zshrc ]; then
+        ln -nfs $DOTFILES/nvim $HOME/.config/nvim
+    fi
+    echo ""
+}
+
 # Main Menu
 Menu(){
     echo "Welcome to this set up script, please choose an option to select"\
@@ -29,8 +51,12 @@ until [ $option -eq 6 ]
 do
     case $option in
         1) 
+            symbolic_links
+            sleep 1
             clear
-            echo $option
+            echo "Symbolink links created"
+            sleep 1
+            clear
         	Menu
             ;;
         2)
