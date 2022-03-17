@@ -10,6 +10,13 @@
 # Variables
 DOTFILES=$HOME/.dotfiles
 
+# Install Homebrew
+Install_Homebrew(){
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "export PATH=$PATH:/opt/homebrew/bin" >> ~/.bash_profile
+    source ~/.bash_profile
+}
+
 # Symbolic links
 symbolic_links(){
     echo "Removing previous configuration files for bash and zsh"
@@ -35,22 +42,33 @@ Menu(){
     "what you want to do."
     
     echo ""
-    echo "1) Creation of symbolic links"
-    echo "2) First step installation (Homebrew, git)"
-    echo "3) Install all the required packages for developing (without text editor)"
-    echo "4) Install and set up Neovim"
-    echo "5) Check compliances"
-    echo "6) Exit"
+    echo "1) Install Homebrew"
+    echo "2) Install git"
+    echo "3) Install Neovim"
+    echo "4) Creation of symbolic links"
+    echo "5) First step installation (Homebrew, git)"
+    echo "6) Install all the required packages for developing (without text editor)"
+    echo "7) Install and set up Neovim"
+    echo "8) Check compliances"
+    echo "9) Exit"
     echo ""
     echo "Please choose an option"
 }
 
 # Menu
 option=0
-until [ $option -eq 6 ]
+until [ $option -eq 9 ]
 do
     case $option in
         1) 
+            Install_Homebrew
+            Menu
+            ;;
+        2) 
+            echo "Install git"
+        3) 
+            echo "Install Neovim"
+        4) 
             symbolic_links
             sleep 1
             clear
@@ -59,22 +77,22 @@ do
             clear
         	Menu
             ;;
-        2)
-            clear
-            echo $option
-        	Menu
-            ;;
-        3)
-            clear
-            echo $option
-        	Menu
-            ;;
-        4)
-            clear
-            echo $option
-        	Menu
-            ;;
         5)
+            clear
+            echo $option
+        	Menu
+            ;;
+        6)
+            clear
+            echo $option
+        	Menu
+            ;;
+        7)
+            clear
+            echo $option
+        	Menu
+            ;;
+        8)
             clear
             echo $option
         	Menu
