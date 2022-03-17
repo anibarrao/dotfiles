@@ -12,6 +12,7 @@ alias gca="git commit -a -m"
 alias ga="git add"
 alias gl="git log"
 alias gch="git checkout"
+alias gd="git diff"
 
 # Miscellaneous
 alias vim="nvim"
