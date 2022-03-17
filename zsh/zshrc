@@ -38,7 +38,14 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 # Add nvim as the default editor
 export EDITOR=nvim
 
+# Set gsed as the default sed
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# include bash_profile on zsh
+if [ -f $HOME/.bash_profile ]; then
+    . $HOME/.bash_profile
+fi
