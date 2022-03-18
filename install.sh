@@ -12,6 +12,14 @@ DOTFILES=$HOME/.dotfiles
 EMAIL=anderson.ibarra@mercadolibre.com.co
 NAME=anibarrao
 
+# Install iterm2
+Install_iTerm2(){
+  echo "Installing iterm2..."
+  sleep 0.5
+  echo ""
+  brew install iterm2
+}
+
 # Install Neovim
 Install_vim(){
     echo "Installing Neovim..."
@@ -69,19 +77,20 @@ Menu(){
     echo "1) Install Homebrew"
     echo "2) Install git"
     echo "3) Install Neovim"
-    echo "4) Creation of symbolic links"
-    echo "5) First step installation (Homebrew, git)"
-    echo "6) Install all the required packages for developing (without text editor)"
-    echo "7) Install and set up Neovim"
-    echo "8) Check compliances"
-    echo "9) Exit"
+    echo "4) Install iterm2"
+    echo "5) Creation of symbolic links"
+    echo "6) First step installation (Homebrew, git)"
+    echo "7) Install all the required packages for developing (without text editor)"
+    echo "8) Install and set up Neovim"
+    echo "9) Check compliances"
+    echo "10) Exit"
     echo ""
     echo "Please choose an option"
 }
 
 # Menu
 option=0
-until [ $option -eq 9 ]
+until [ $option -eq 10 ]
 do
     case $option in
         1) 
@@ -100,18 +109,18 @@ do
             clear
             Menu
             ;;
-        4) 
+        4)
+          Install_iTerm2
+          sleep 0.5
+          clear Menu
+          ;;
+        5)
             symbolic_links
             sleep 1
             clear
             echo "Symbolink links created"
             sleep 1
             clear
-        	Menu
-            ;;
-        5)
-            clear
-            echo $option
         	Menu
             ;;
         6)
@@ -125,6 +134,11 @@ do
         	Menu
             ;;
         8)
+            clear
+            echo $option
+        	Menu
+            ;;
+        9)
             clear
             echo $option
         	Menu
