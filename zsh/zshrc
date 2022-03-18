@@ -52,3 +52,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 if [ -f $HOME/.bash_profile ]; then
     . $HOME/.bash_profile
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

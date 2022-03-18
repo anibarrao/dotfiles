@@ -12,6 +12,10 @@ DOTFILES=$HOME/.dotfiles
 EMAIL=anderson.ibarra@mercadolibre.com.co
 NAME=anibarrao
 
+# Install Dev-Tools
+Install_DevTools(){
+    bash dev-tools.sh
+}
 
 # Install tmux
 Install_Tmux(){
@@ -96,10 +100,9 @@ Menu(){
     echo "5) Install tmux"
     echo "6) Creation of symbolic links"
     echo "7) Make initial configurations (Brew, Git, iterm2, tmux and the creation of symbolic links"
-    echo "8) Install all the required packages for developing (without text editor)"
-    echo "9) Install and set up Neovim"
-    echo "10) Check compliances"
-    echo "11) Exit"
+    echo "8) Install Dev-Tools"
+    echo "9) Set up Neovim"
+    echo "10) Exit"
     echo ""
     echo "Please choose an option"
 }
@@ -161,8 +164,8 @@ do
         	Menu
             ;;
         8)
+            Install_DevTools
             clear
-            echo $option
         	Menu
             ;;
         9)
@@ -183,7 +186,7 @@ do
     read option
 done
 
-if [ $option -eq 9 ]; then
+if [ $option -eq 10 ]; then
     clear
 fi
 
