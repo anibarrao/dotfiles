@@ -60,7 +60,7 @@ Install_Homebrew(){
 
 # Symbolic links
 symbolic_links(){
-    if [ -f $DOTFILES ]; then
+    if [ -d $DOTFILES ]; then
         echo "Removing previous configuration files for bash and zsh"
         rm -rf $HOME/.bash* $HOME/.zsh* && echo "Files erased"
         echo ""
