@@ -12,20 +12,21 @@ DOTFILES=$HOME/.dotfiles
 EMAIL=anderson.ibarra@mercadolibre.com.co
 NAME=anibarrao
 
+
 # Install tmux
 Install_Tmux(){
-  echo "Installing tmux..."
-  sleep 0.5
-  echo ""
-  brew install tmux
+    echo "Installing tmux..."
+    sleep 0.5
+    echo ""
+    brew install tmux
 }
 
 # Install iterm2
 Install_iTerm2(){
-  echo "Installing iterm2..."
-  sleep 0.5
-  echo ""
-  brew install iterm2
+    echo "Installing iterm2..."
+    sleep 0.5
+    echo ""
+    brew install iterm2
 }
 
 # Install Neovim
@@ -59,22 +60,27 @@ Install_Homebrew(){
 
 # Symbolic links
 symbolic_links(){
-    echo "Removing previous configuration files for bash and zsh"
-    rm -rf $HOME/.bash* $HOME/.zsh* && echo "Files erased"
-    echo ""
-    echo "Creating symbolic links for zshrc"
-    if [ -f $DOTFILES/zsh/zshrc ]; then
-        ln -nfs $DOTFILES/zsh/zshrc $HOME/.zshrc
-        source ~/.zshrc
+    if [ -f $DOTFILES ]; then
+        echo "Removing previous configuration files for bash and zsh"
+        rm -rf $HOME/.bash* $HOME/.zsh* && echo "Files erased"
+        echo ""
+        echo "Creating symbolic links for zshrc"
+        if [ -f $DOTFILES/zsh/zshrc ]; then
+            ln -nfs $DOTFILES/zsh/zshrc $HOME/.zshrc
+            source ~/.zshrc
+        fi
+        echo "Removing previous configuration files for nvim"
+        rm -rf $HOME/.config/nvim 
+        echo ""
+        echo "Creating symbolic link for nvim configuration files"
+        if [ -f $DOTFILES/zsh/zshrc ]; then
+            ln -nfs $DOTFILES/nvim $HOME/.config/nvim
+        fi
+        echo ""
+    else
+        git clone git@github.com:anibarrao/dotfiles.git ~/.dotfiles
+        symbolic_links
     fi
-    echo "Removing previous configuration files for nvim"
-    rm -rf $HOME/.config/nvim 
-    echo ""
-    echo "Creating symbolic link for nvim configuration files"
-    if [ -f $DOTFILES/zsh/zshrc ]; then
-        ln -nfs $DOTFILES/nvim $HOME/.config/nvim
-    fi
-    echo ""
 }
 
 # Main Menu
@@ -89,7 +95,7 @@ Menu(){
     echo "4) Install iterm2"
     echo "5) Install tmux"
     echo "6) Creation of symbolic links"
-    echo "7) First step installation (Homebrew, git)"
+    echo "7) Make initial configurations (Brew, Git, iterm2, tmux and the creation of symbolic links"
     echo "8) Install all the required packages for developing (without text editor)"
     echo "9) Install and set up Neovim"
     echo "10) Check compliances"
@@ -141,8 +147,17 @@ do
         	Menu
             ;;
         7)
+            Install_Homebrew
+            Install_Git
+            Install_vim
+            Install_iTerm2
+            Install_Tmux
+            symbolic_links
+            sleep 0.5
+            echo ""
+            echo "Installation of the initial configurations succeded"
+            sleep 1
             clear
-            echo $option
         	Menu
             ;;
         8)
