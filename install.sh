@@ -9,6 +9,21 @@
 
 # Variables
 DOTFILES=$HOME/.dotfiles
+EMAIL=anderson.ibarra@mercadolibre.com.co
+NAME=anibarrao
+
+# Install Git
+Install_Git(){
+    clear 
+    echo "Installing Git"
+    brew install git
+    sleep 0.5
+    clear
+    echo "Making initial configurations"
+    git config --global user.email $EMAIL
+    git config --global user.name "$NAME"
+    git config --global init.defaultBranch main
+}
 
 # Install Homebrew
 Install_Homebrew(){
@@ -65,9 +80,14 @@ do
             Menu
             ;;
         2) 
-            echo "Install git"
+            Install_Git
+            sleep 0.5
+            clear
+            Menu
+            ;;
         3) 
             echo "Install Neovim"
+            ;;
         4) 
             symbolic_links
             sleep 1
@@ -105,7 +125,7 @@ do
     read option
 done
 
-if [ $option -eq 6 ]; then
+if [ $option -eq 9 ]; then
     clear
 fi
 
