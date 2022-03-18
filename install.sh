@@ -12,13 +12,22 @@ DOTFILES=$HOME/.dotfiles
 EMAIL=anderson.ibarra@mercadolibre.com.co
 NAME=anibarrao
 
+# Install Neovim
+Install_vim(){
+    echo "Installing Neovim..."
+    sleep 0.5
+    echo ""
+    brew install neovim
+}
+
+
 # Install Git
 Install_Git(){
-    clear 
+    echo "" 
     echo "Installing Git"
     brew install git
     sleep 0.5
-    clear
+    echo ""
     echo "Making initial configurations"
     git config --global user.email $EMAIL
     git config --global user.name "$NAME"
@@ -86,7 +95,10 @@ do
             Menu
             ;;
         3) 
-            echo "Install Neovim"
+            Install_vim
+            sleep 0.5
+            clear
+            Menu
             ;;
         4) 
             symbolic_links
