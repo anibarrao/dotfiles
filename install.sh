@@ -12,6 +12,12 @@ DOTFILES=$HOME/.dotfiles
 EMAIL=anderson.ibarra@mercadolibre.com.co
 NAME=anibarrao
 
+# Install powerlevel10k
+Install_Powerlevel10k(){
+    brew install romkatv/powerlevel10k/powerlevel10k
+    echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc 
+}
+
 # Install Dev-Tools
 Install_DevTools(){
     bash dev-tools.sh
@@ -102,14 +108,16 @@ Menu(){
     echo "7) Make initial configurations (Brew, Git, iterm2, tmux and the creation of symbolic links"
     echo "8) Install Dev-Tools"
     echo "9) Set up Neovim"
-    echo "10) Exit"
+    echo "10) Install Powerlevel10k"
+    echo "11) Install everything"
+    echo "12) Exit"
     echo ""
     echo "Please choose an option"
 }
 
 # Menu
 option=0
-until [ $option -eq 10 ]
+until [ $option -eq 12 ]
 do
     case $option in
         1) 
@@ -174,10 +182,19 @@ do
         	Menu
             ;;
         10)
+            Install_Powerlevel10k
             clear
-            echo $option
         	Menu
             ;;
+        11) 
+            Install_Homebrew
+            Install_Git
+            Install_vim
+            Install_iTerm2
+            Install_Tmux
+            symbolic_links
+            Install_DevTools
+            Install_Powerlevel10k
         *)
             clear
         	Menu
@@ -186,7 +203,7 @@ do
     read option
 done
 
-if [ $option -eq 10 ]; then
+if [ $option -eq 12 ]; then
     clear
 fi
 
