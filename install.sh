@@ -20,6 +20,7 @@ config_neovim(){
 	nvim -c "PlugInstall" -cq -cq
 	nvim -c ":helptags ALL" -c ":q"
 	nvim -c ":GoInstallBinaries" -c ":q"
+	nvim -c ":CocInstall coc-snippets" -c ":q"
 } 
 
 # Install powerlevel10k

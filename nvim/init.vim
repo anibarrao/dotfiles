@@ -51,8 +51,9 @@ Plug 'ryanoasis/vim-devicons'  				" https://github.com/ryanoasis/vim-devicons
 Plug 'airblade/vim-gitgutter' 				" https://github.com/airblade/vim-gitgutter
 Plug 'mkitt/tabline.vim'       				" https://github.com/mkitt/tabline.vim
 Plug 'vim-airline/vim-airline' 				" https://github.com/vim-airline/vim-airline
-Plug 'SirVer/ultisnips'					" https://github.com/SirVer/ultisnips
+" Plug 'SirVer/ultisnips'					" https://github.com/SirVer/ultisnips
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     	" https://github.com/neoclide/coc.nvim
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }		" https://github.com/junegunn/fzf.vim
 
 " - Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } 	" https://github.com/fatih/vim-go
