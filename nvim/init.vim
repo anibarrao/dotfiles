@@ -51,6 +51,7 @@ Plug 'ryanoasis/vim-devicons'  				" https://github.com/ryanoasis/vim-devicons
 Plug 'airblade/vim-gitgutter' 				" https://github.com/airblade/vim-gitgutter
 Plug 'mkitt/tabline.vim'       				" https://github.com/mkitt/tabline.vim
 Plug 'vim-airline/vim-airline' 				" https://github.com/vim-airline/vim-airline
+Plug 'vim-airline/vim-airline-themes'		" https://github.com/vim-airline/vim-airline-themes
 " Plug 'SirVer/ultisnips'					" https://github.com/SirVer/ultisnips
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     	" https://github.com/neoclide/coc.nvim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }		" https://github.com/junegunn/fzf.vim
@@ -60,7 +61,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } 	" https://github.com/fatih/
 
 " - Themes
 Plug 'NLKNguyen/papercolor-theme' 			" https://github.com/NLKNguyen/papercolor-theme
-
+Plug 'joshdick/onedark.vim'					" https://github.com/joshdick/onedark.vim
 call plug#end()
 
 " plugin END
@@ -143,7 +144,7 @@ augroup END
 
 set termguicolors
 set background=dark
-colorscheme PaperColor
+colorscheme onedark
 
 " -- Theme END
 
@@ -163,3 +164,6 @@ let g:coc_snippet_next = '<tab>'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " -- Coc END
+
+let g:airline_powerline_fonts = 1
+set rtp+=/usr/local/opt/fzf
