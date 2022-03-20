@@ -12,6 +12,15 @@ DOTFILES=$HOME/.dotfiles
 EMAIL=anderson.ibarra@mercadolibre.com.co
 NAME=anibarrao
 
+# Config neovim
+config_neovim(){
+	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	nvim -c "PlugInstall" -cq -cq
+	nvim -c ":helptags ALL" -c ":q"
+	nvim -c ":GoInstallBinaries" -c ":q"
+} 
+
 # Install powerlevel10k
 Install_Powerlevel10k(){
     brew install romkatv/powerlevel10k/powerlevel10k
@@ -177,8 +186,7 @@ do
         	Menu
             ;;
         9)
-            clear
-            echo $option
+			config_neovim
         	Menu
             ;;
         10)
@@ -195,6 +203,11 @@ do
             symbolic_links
             Install_DevTools
             Install_Powerlevel10k
+			config_neovim
+			sleep 0.5
+			clear
+			Menu
+			;;
         *)
             clear
         	Menu
