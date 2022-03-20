@@ -38,6 +38,17 @@ hi Search cterm=NONE ctermfg=black ctermbg=red
 
 " Vim configs END
 
+" coc extensions
+let g:coc_global_extensions = [
+	\ 'coc-ultisnips',
+	\ 'coc-html',
+	\ 'coc-go',
+	\ 'coc-css',
+	\ 'coc-json',
+	\ 'coc-pyright',
+	\ 'coc-texlab'
+\ ]
+" -- coc extensions END
 
 " -- plugin installation
 call plug#begin()
@@ -167,3 +178,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:airline_powerline_fonts = 1
 set rtp+=/usr/local/opt/fzf
+
+" latex
+let g:tex_flavor = "latex"

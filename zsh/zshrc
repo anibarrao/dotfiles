@@ -16,7 +16,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #Added by furycli:
-export PATH=/Users/anibarra/Library/Python/3.9/bin:/Users/anibarra/.rvm/gems/ruby-3.0.0/bin:/Users/anibarra/.rvm/gems/ruby-3.0.0@global/bin:/Users/anibarra/.rvm/rubies/ruby-3.0.0/bin:/Users/anibarra/.nvm/versions/node/v17.6.0/bin:/Users/anibarra/Library/Python/3.9/bin:/Users/anibarra/.sdkman/candidates/grails/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/go/bin:/Users/anibarra/.rvm/bin:/opt/homebrew/bin
+export PATH=/Users/anibarra/Library/Python/3.9/bin:/Users/anibarra/.rvm/gems/ruby-3.0.0/bin:/Users/anibarra/.rvm/gems/ruby-3.0.0@global/bin:/Users/anibarra/.rvm/rubies/ruby-3.0.0/bin:/Users/anibarra/.nvm/versions/node/v17.6.0/bin:/Users/anibarra/Library/Python/3.9/bin:/Users/anibarra/.sdkman/candidates/grails/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/go/bin:/Users/anibarra/.rvm/bin:/opt/homebrew/bin:$HOME/.local/bin:$HOME/Library/TeX/texbin
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
