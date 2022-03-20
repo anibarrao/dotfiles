@@ -31,6 +31,7 @@ set clipboard=unnamed		" Enables sharing between system clipboard and vim clipbo
 set noscrollbind		" Disable multiple scroll
 set wildmenu			" Completes as in zsh
 set autochdir			" Changes the work directory to the one which the file belongs 
+set ts=4 sw=4			" Tab is 4 spaces
 
 " Change color of the search highlight
 hi Search cterm=NONE ctermfg=black ctermbg=red
@@ -144,3 +145,5 @@ set background=dark
 colorscheme PaperColor
 
 " -- Theme END
+
+
