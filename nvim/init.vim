@@ -47,7 +47,10 @@ let g:coc_global_extensions = [
 	\ 'coc-json',
 	\ 'coc-pyright',
 	\ 'coc-texlab',
-	\ 'coc-emmet'
+	\ 'coc-emmet',
+	\ 'coc-tsserver',
+	\ 'coc-sh',
+	\ 'coc-markdownlint'
 \ ]
 " -- coc extensions END
 
