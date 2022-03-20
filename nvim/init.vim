@@ -43,7 +43,7 @@ hi Search cterm=NONE ctermfg=black ctermbg=red
 call plug#begin()
 
 " - General
-Plug 'presevim/nerdtree', {'on': 'NERDTreeToggle'} 	" https://github.com/preservim/nerdtree
+Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'} 	" https://github.com/preservim/nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin' 			" https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'		" https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 Plug 'preservim/nerdcommenter'				" https://github.com/preservim/nerdcommenter
@@ -90,9 +90,9 @@ nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 nnoremap <silent> <C-f> :NERDTreeFind<CR>
 
 " Nerdcommenter keymaps 
-map <leader>cs <plug>NERDCommenterToggle
-map <leader>cc <plug>NERDCommenterAppend
-map <leader>cb <plug>NERDcommenterSexy
+map <leader>cs <Plug>NERDCommenterToggle
+map <leader>cc <Plug>NERDCommenterAppend
+map <leader>cb <Plug>NERDcommenterSexy
 
 " Keybindings END
 
