@@ -46,7 +46,8 @@ let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-json',
 	\ 'coc-pyright',
-	\ 'coc-texlab'
+	\ 'coc-texlab',
+	\ 'coc-emmet'
 \ ]
 " -- coc extensions END
 
@@ -70,6 +71,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }		" https://github.com/junegu
 " - Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } 	" https://github.com/fatih/vim-go
 
+" - HTML
+Plug 'mattn/emmet-vim' 						" https://github.com/mattn/emmet-vim
 " - Themes
 Plug 'NLKNguyen/papercolor-theme' 			" https://github.com/NLKNguyen/papercolor-theme
 Plug 'joshdick/onedark.vim'					" https://github.com/joshdick/onedark.vim
@@ -181,3 +184,7 @@ set rtp+=/usr/local/opt/fzf
 
 " latex
 let g:tex_flavor = "latex"
+
+" html
+let g:user_emmet_expandabbr_key='<Tab>'
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
