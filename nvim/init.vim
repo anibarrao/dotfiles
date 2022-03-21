@@ -189,5 +189,9 @@ set rtp+=/usr/local/opt/fzf
 let g:tex_flavor = "latex"
 
 " html
-let g:user_emmet_expandabbr_key='<Tab>'
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+" let g:user_emmet_expandabbr_key='<Tab>'
+" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
