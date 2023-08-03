@@ -77,9 +77,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages command-not-found iterm2)
 
 source $ZSH/oh-my-zsh.sh
+bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
 
 # User configuration
 
@@ -110,21 +111,8 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Custom configurations from my previous zsh 
-#
 # Go Variables
 GOPATH=$HOME/go
-
-# Added by furycli:
-export PATH=/Users/anibarra/Library/Python/3.9/bin:/Users/anibarra/.rvm/gems/ruby-3.0.0/bin:/Users/anibarra/.rvm/gems/ruby-3.0.0@global/bin:/Users/anibarra/.rvm/rubies/ruby-3.0.0/bin:/Users/anibarra/.nvm/versions/node/v17.6.0/bin:/Users/anibarra/.sdkman/candidates/grails/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/go/bin:/Users/anibarra/.rvm/bin:$HOME/.local/bin:$HOME/Library/TeX/texbin:/usr/local/opt/gnu-sed/libexec/gnubin:$GOPATH/bin
-
-# nvm 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion 
-
-# manven
-export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Include aliases 
 if [ -f $HOME/.dotfiles/zsh/zsh_aliases ]; then
@@ -144,10 +132,15 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh 
 
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change
-export PATH="$PATH:$HOME/.rvm/bin"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+gga () {
+	make fmt && git add $1
+}
+
+# Meli configs
+if [ -f $HOME/.zsh_path_meli ]; then
+  . $HOME/.zsh_path_meli
+fi
+
+
