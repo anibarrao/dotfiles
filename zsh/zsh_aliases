@@ -22,3 +22,5 @@ alias v="nvim"
 # Python
 alias python=python3
 alias py=python3
+
+alias sz="source ~/.zshrc"

@@ -1,0 +1,5 @@
+require("utils.telescope")
+require("utils.autopairs")
+require("utils.comments")
+require("utils.gitsigns")
+require("utils.nvim-tree")

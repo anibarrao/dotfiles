@@ -2,16 +2,16 @@ local opts = { noremap = true, silent = true, expr = false}
 local term_opts = { silent = true }
 local vimmap = vim.api.nvim_set_keymap
 
-local map = function(mode, keymap, exec) 
+local map = function(mode, keymap, exec)
   vimmap(mode, keymap, exec, opts)
 end
 
-local tmap = function(keymap, exec) 
+local tmap = function(keymap, exec)
   vimmap("t", keymap, exec, term_opts)
 end
 
 -- Space as leader key
-map("", '<Space>', "<Nop>", opts)
+map("", '<Space>', "<Nop>")
 vim.g.mapleader = " "
 
 -- Abbreviations
@@ -35,17 +35,18 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
 -- Open explorer
-map("n", "<leader>e", ":Lex 30<CR>")
+map("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- Resize with arrows
 map("n", "<C-Up>", ":resize +2<CR>")
 map("n", "<C-Down>", ":resize -2<CR>")
-map("n", "<C-Left>", ":vertical resize +2<CR>")
-map("n", "<C-Right>", ":vertical resize -2<CR>")
+map("n", "<C-Left>", ":vertical resize -2<CR>")
+map("n", "<C-Right>", ":vertical resize +2<CR>")
 
 -- Navigate buffers
 map("n", "<S-l>", ":bnext<CR>")
-map("n", "<S-h>", ":bnext<CR>")
+map("n", "<S-h>", ":bprevious<CR>")
+map("n", "<S-d>", ":bdelete<CR>")
 
 -- Move text up and down
 map("n", "<A-j>", ":m .+1<CR>")
@@ -64,12 +65,13 @@ map("n", "<S-q>", ":q<CR>")
 map("n", "<S-w>", ":w<CR>")
 map("n", "<S-x>", ":wq<CR>")
 
+map("n", "<leader>-", ":split<CR>")
+map("n", "<leader>/", ":vsplit<CR>")
 
 ---- Insert mode
 map("i", "jj", "<Esc>")
 map("i", "kk", "<Esc>")
 map("i", "jk", "<Esc>")
-map("i", "hh", "<Esc>")
 
 -- Visual --
 -- Stay in indent mode
@@ -90,7 +92,17 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv")
 
 -- Terminal --
 -- Better terminal navigation
-map("t", "<C-h>", "<C-\\><C-N><C-w>h")
-map("t", "<C-j>", "<C-\\><C-N><C-w>j")
-map("t", "<C-k>", "<C-\\><C-N><C-w>k")
-map("t", "<C-l>", "<C-\\><C-N><C-w>l")
+tmap("<C-h>", "<C-\\><C-N><C-w>h")
+tmap("<C-j>", "<C-\\><C-N><C-w>j")
+tmap("<j-k>", "<C-\\><C-N><C-w>k")
+tmap("<C-l>", "<C-\\><C-N><C-w>l")
+
+
+-- Telescope
+map("n", "<leader>f", "<cmd> Telescope find_files<CR>")
+-- Para usar sta funcionalidad se requiere ripgrep!!
+map("n", "<C-t>", "<cmd>Telescope live_grep<CR>")
+
+map("n", "j", "gj")
+map("n", "k", "gk")
+

@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages command-not-found iterm2)
+plugins=(git zsh-autosuggestions colored-man-pages iterm2)
 
 source $ZSH/oh-my-zsh.sh
 bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
@@ -116,7 +116,12 @@ GOPATH=$HOME/go
 
 # Include aliases 
 if [ -f $HOME/.dotfiles/zsh/zsh_aliases ]; then
-	. $HOME/.dotfiles/zsh/zsh_aliases
+  . $HOME/.dotfiles/zsh/zsh_aliases
+fi
+
+# Include git aliases
+if [ -f $HOME/.dotfiles/zsh/git_aliases ]; then
+  . $HOME/.dotfiles/zsh/git_aliases
 fi
 
 # include colores on ls
@@ -125,6 +130,7 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 
 # Add nvim as the default editor
 export EDITOR=nvim
+export LC_ALL="en_US.UTF-8"
 
 # Mute powerlevel10k
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
@@ -138,9 +144,21 @@ gga () {
 	make fmt && git add $1
 }
 
+killthis () {
+  ps -ef | grep -i $1 | awk '{print $2}' | xargs kill -9
+}
+
 # Meli configs
 if [ -f $HOME/.zsh_path_meli ]; then
   . $HOME/.zsh_path_meli
 fi
 
 
+export RANGER_FURY_LOCATION=/Users/anibarra/.fury #Added by Fury CLI
+export RANGER_FURY_VENV_LOCATION=/Users/anibarra/.fury/fury_venv #Added by Fury CLI
+
+# Added by Fury CLI installation process
+declare FURY_BIN_LOCATION="/Users/anibarra/.fury/fury_venv/bin" # Added by Fury CLI installation process
+export PATH="$PATH:$FURY_BIN_LOCATION" # Added by Fury CLI installation process
+# Added by Fury CLI installation process
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
